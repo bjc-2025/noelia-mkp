@@ -5,8 +5,8 @@ import Script from "next/script";
 
 export function InstagramSection() {
   return (
-    <section id="gallery" className="relative py-16 px-4 overflow-hidden bg-white">
-      <div className="mx-auto max-w-7xl px-8">
+    <section id="gallery" className="relative py-16 px-4 overflow-hidden bg-[#FEE6E7] min-h-screen flex items-center">
+      <div className="mx-auto max-w-7xl px-8 w-full">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -17,12 +17,10 @@ export function InstagramSection() {
         >
           <div className="relative mb-6">
           </div>
-          <h2 className="text-4xl md:text-5xl font-display font-semibold text-brown-400 mb-4">
-            Instagram Feed
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8 tracking-wider text-neutral-900">
+            INSTAGRAM
           </h2>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Get inspired by our latest beauty transformations and behind-the-scenes moments
-          </p>
+         
         </motion.div>
 
         {/* Elfsight Instagram Feed Widget */}

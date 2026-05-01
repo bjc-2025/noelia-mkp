@@ -1,13 +1,23 @@
 "use client"
 
-import { useState } from 'react'
-import { motion } from 'framer-motion'
+import { useState, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { Volume2, VolumeX } from 'lucide-react'
+
+const words = ['Freedom', 'Artistry', 'Experience', 'Beauty', 'Adaptive']
 
 export default function VideoSection() {
   const [isMuted, setIsMuted] = useState(true)
+  const [wordIndex, setWordIndex] = useState(0)
 
   const toggleMute = () => setIsMuted(!isMuted)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setWordIndex((prev) => (prev + 1) % words.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section className="relative h-screen w-full overflow-hidden">
@@ -31,32 +41,21 @@ export default function VideoSection() {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
       </div>
 
-      {/* Content Container - Bottom Left */}
-      <div className="relative z-10 flex h-full items-end">
-        <div className="p-8 md:p-12 lg:p-16">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="max-w-2xl"
+
+      {/* Slideshow Words - Bottom Left */}
+      <div className="absolute bottom-24 left-4 z-10 pointer-events-none sm:left-8 md:left-12 lg:left-16">
+        <AnimatePresence mode="wait">
+          <motion.span
+            key={wordIndex}
+            className="block text-white/70 text-[2rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-medium tracking-wider uppercase leading-[0.85]"
+            initial={{ y: 30, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: -30, opacity: 0 }}
+            transition={{ duration: 1.2, ease: 'easeInOut' }}
           >
-            <h2 className="-mb-2 font-serif text-5xl font-light italic text-white opacity-50 transition-opacity duration-300 hover:opacity-100 cursor-pointer md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'Georgia, serif' }}>
-              Freedom
-            </h2>
-            <h2 className="-mb-2 font-serif text-5xl font-light italic text-white opacity-50 transition-opacity duration-300 hover:opacity-100 cursor-pointer md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'Georgia, serif' }}>
-              Artistry
-            </h2>
-            <h2 className="-mb-2 font-serif text-5xl font-light italic text-white opacity-50 transition-opacity duration-300 hover:opacity-100 cursor-pointer md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'Georgia, serif' }}>
-              Experience
-            </h2>
-            <h2 className="-mb-2 font-serif text-5xl font-light italic text-white opacity-50 transition-opacity duration-300 hover:opacity-100 cursor-pointer md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'Georgia, serif' }}>
-              Beauty
-            </h2>
-            <h2 className="font-serif text-5xl font-light italic text-white opacity-50 transition-opacity duration-300 hover:opacity-100 cursor-pointer md:text-6xl lg:text-7xl leading-none" style={{ fontFamily: 'Georgia, serif' }}>
-              Adaptive
-            </h2>
-          </motion.div>
-        </div>
+            {words[wordIndex]}
+          </motion.span>
+        </AnimatePresence>
       </div>
 
       {/* Video Controls - Bottom Right */}

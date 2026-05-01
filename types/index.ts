@@ -44,3 +44,14 @@ export interface Service {
 export interface ClientFavouritesProps {
   services?: Service[]
 }
+
+// Contact Form Types
+export type ServiceOption = 'photoshoot' | 'film-tv' | 'wedding'
+
+export interface ContactFormProps {
+  selectedService?: ServiceOption
+}
+
+export interface ContactSectionProps {
+  selectedService?: ServiceOption
+}

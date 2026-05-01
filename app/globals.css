@@ -126,3 +126,21 @@
     @apply bg-background text-foreground;
   }
 }
+
+.eapps-instagram-feed-header.es-header {
+  background-color: #FEE6E7 !important;
+  padding: 0 !important;
+}
+
+.eapps-instagram-feed-header-inner {
+  justify-content: flex-start !important;
+  margin: 0 !important;
+  width: 100% !important;
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  gap: 1.5rem !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 1.5rem !important;
+}
