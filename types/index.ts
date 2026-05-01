@@ -39,8 +39,20 @@ export interface Service {
   image: string
   layout: 'feature' | 'standard'
   alt: string
+  href?: string
 }
 
 export interface ClientFavouritesProps {
   services?: Service[]
+}
+
+// Contact Form Types
+export type ServiceOption = 'photoshoot' | 'film-tv' | 'wedding'
+
+export interface ContactFormProps {
+  selectedService?: ServiceOption
+}
+
+export interface ContactSectionProps {
+  selectedService?: ServiceOption
 }

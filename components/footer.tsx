@@ -2,7 +2,7 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <footer className="bg-neutral-100 px-8 py-16">
+    <footer className="bg-blush px-8 py-16">
       <div className="max-w-8xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12">
           {/* Follow Us Section */}
@@ -50,7 +50,7 @@ const Footer = () => {
 
           {/* Brand Name */}
           <div className="flex items-end">
-            <h2 className="text-3xl md:text-4xl font-bold tracking-wider text-neutral-800">NOELIA MKP</h2>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-wider text-neutral-800">NOELIA MAKEUP</h2>
           </div>
         </div>
 

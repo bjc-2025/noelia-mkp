@@ -19,9 +19,10 @@ const DEFAULT_SERVICES: Service[] = [
     ],
     duration: '60–90 min',
     priceFrom: 'From $180',
-    image: '/images/hero/girl1.jpg',
+    image: '/images/services/photoshoot.jpeg',
     layout: 'feature',
-    alt: 'Makeup artist perfecting a model for a studio photoshoot'
+    alt: 'Makeup artist perfecting a model for a studio photoshoot',
+    href: '/services/photoshoot'
   },
   {
     id: 'srv-film-tv',
@@ -34,13 +35,14 @@ const DEFAULT_SERVICES: Service[] = [
     ],
     duration: '60–120 min',
     priceFrom: 'From $220',
-    image: '/images/hero/girl3.jpg',
+    image: '/images/services/tv.jpeg',
     layout: 'feature',
-    alt: 'Film and TV set with makeup artist doing on-set touch-ups'
+    alt: 'Film and TV set with makeup artist doing on-set touch-ups',
+    href: '/services/film-tv'
   },
   {
     id: 'srv-wedding',
-    title: 'Wedding',
+    title: 'Weddings',
     blurb: 'Timeless bridal glam designed to last all day.',
     features: [
       'Bridal trial option',
@@ -49,29 +51,30 @@ const DEFAULT_SERVICES: Service[] = [
     ],
     duration: '~90 min',
     priceFrom: 'From $280',
-    image: '/images/about/girl2.jpg',
+    image: '/images/services/weddings.jpeg',
     layout: 'feature',
-    alt: 'Bride with elegant, long-lasting bridal makeup'
+    alt: 'Bride with elegant, long-lasting bridal makeup',
+    href: '/services/weddings'
   }
 ]
 
-const ClientFavourites: React.FC<ClientFavouritesProps> = ({ 
-  services = DEFAULT_SERVICES 
+const ClientFavourites: React.FC<ClientFavouritesProps> = ({
+  services = DEFAULT_SERVICES
 }) => {
   const shouldReduceMotion = useReducedMotion()
 
   const fadeInUp = {
-    initial: { 
-      opacity: 0, 
+    initial: {
+      opacity: 0,
       y: shouldReduceMotion ? 0 : 30,
       scale: shouldReduceMotion ? 1 : 0.98
     },
-    animate: { 
-      opacity: 1, 
+    animate: {
+      opacity: 1,
       y: 0,
       scale: 1
     },
-    transition: { 
+    transition: {
       duration: shouldReduceMotion ? 0.2 : 0.45,
       ease: [0.25, 0.1, 0.25, 1]
     }
@@ -87,117 +90,57 @@ const ClientFavourites: React.FC<ClientFavouritesProps> = ({
   }
 
   return (
-    <section 
-      className="relative bg-gray-50 py-[88px] px-6 md:px-10 lg:px-16"
+    <section
+      className="relative bg-gray-50 py-[88px] px-6 md:px-10 lg:px-16 min-h-screen"
       aria-labelledby="client-favourites-heading"
     >
-      <div className="max-w-8xl">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16">
-          
-          {/* Left Text Rail - Sticky */}
-          <div className="lg:w-[50%] lg:flex-shrink-0">
-            <div className="lg:sticky lg:top-24">
-              <motion.div 
-                className="flex flex-col justify-start"
-            initial={fadeInUp.initial}
-            whileInView={fadeInUp.animate}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ 
-              duration: shouldReduceMotion ? 0.2 : 0.45,
-              ease: [0.25, 0.1, 0.25, 1]
-            }}
-          >
-            <h2 
-              id="client-favourites-heading"
-              className="mb-6 font-serif text-4xl leading-tight tracking-tight text-gray-900 md:text-5xl"
-              style={{ fontFamily: 'Georgia, serif' }}
-            >
-              Client Favourites
-            </h2>
-            
-            <p className="mb-8 text-base leading-relaxed text-gray-700 max-w-sm">
-              Our most-booked looks, crafted to perform under studio lights and real life.
-            </p>
-            
-            <Link 
-              href="/services"
-              className="group inline-flex items-center gap-2 text-xs font-medium tracking-[0.15em] uppercase text-gray-600 transition-colors hover:text-gray-900"
-            >
-              Discover Services
-              <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-            </Link>
-              </motion.div>
-            </div>
-          </div>
+      <div className="max-w-8xl flex flex-col justify-center min-h-[calc(100vh-176px)]">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-medium mb-8 tracking-wider text-neutral-900">
+            SERVICES
+          </h1>
 
-          {/* Right Masonry Grid */}
-          <div className="lg:flex-1">
-            <motion.div 
-              className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 auto-rows-[8px]"
+        <div className="w-full">
+          <motion.div
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4"
             variants={staggerContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: true, margin: "-60px" }}
           >
-            {services.map((service, index) => {
-              const rowSpan = service.layout === 'feature' ? 'row-span-[24]' : 'row-span-[14]'
-              
-              return (
-                <motion.article
-                  key={service.id}
-                  className={`${rowSpan} group`}
-                  variants={fadeInUp}
+            {services.map((service, index) => (
+              <motion.article
+                key={service.id}
+                className="group relative h-[600px] overflow-hidden"
+                variants={fadeInUp}
+              >
+                <Link
+                  href={service.href ?? '/contact'}
+                  className="block h-full"
+                  aria-label={`Book ${service.title} service`}
                 >
-                  <Link
-                    href="/contact"
-                    className="block h-full"
-                    aria-label={`Book ${service.title} service`}
-                  >
-                    <div className="relative h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
-                      {/* Service Image */}
-                      <div className={`relative ${service.layout === 'feature' ? 'h-[380px]' : 'h-[160px]'}`}>
-                        <Image
-                          src={service.image}
-                          alt={service.alt}
-                          fill
-                          className="object-cover"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                          loading={index === 0 ? 'eager' : 'lazy'}
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      </div>
+                  <div className="relative h-full transition-all duration-300 hover:shadow-lg hover:-translate-y-1 overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.alt}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
-                      {/* Service Details */}
-                      <div className="p-6">
-                        <h3 className="mb-2 font-serif text-xl font-medium text-gray-900">
-                          {service.title}
-                        </h3>
-                      
-
-                        {/* Features - only show on feature layout */}
-                        {service.layout === 'feature' && (
-                          <ul className="mb-4 space-y-1">
-                            {service.features.map((feature, idx) => (
-                              <li key={idx} className="text-xs text-gray-600 flex items-center gap-2">
-                                <span className="h-1 w-1 rounded-full bg-gray-400" />
-                                {feature}
-                              </li>
-                            ))}
-                          </ul>
-                        )}
-                        
-                        <span className="inline-flex items-center gap-1 text-xs font-medium uppercase tracking-wider text-gray-600 group-hover:text-gray-900 transition-colors">
-                          Book now
-                          <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                        </span>
-                      </div>
+                    {/* Overlayed Text */}
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                      <h3 className="text-3xl font-medium tracking-wider uppercase inline-flex items-center gap-3">
+                        {service.title}
+                        <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-2" />
+                      </h3>
                     </div>
-                  </Link>
-                </motion.article>
-              )
-            })}
-            </motion.div>
-          </div>
+                  </div>
+                </Link>
+              </motion.article>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>

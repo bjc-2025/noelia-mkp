@@ -5,6 +5,7 @@ import MakeupSection from "@/components/makeupSection";
 import VideoSection from "@/components/videoSection";
 import ClientFavourites from "@/components/clientFavourites";
 import { InstagramSection } from "@/components/instagramSection";
+import ContactSection from "@/components/contactSection";
 import Footer from "@/components/footer";
 
 export default function Home() {
@@ -13,14 +14,12 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection />
-        <div id="services">
-          <MakeupSection />
-        </div>
-        <VideoSection />
-        <div id="gallery">
-          <ClientFavourites />
-        </div>
+        <AboutSection />
+        <VideoSection />   
+        <ClientFavourites />
+      
         <InstagramSection />
+        <ContactSection />
       </main>
       <Footer />
     </>

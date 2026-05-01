@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 const About = () => {
   return (
-    <section className="min-h-screen bg-white py-20 px-8">
+    <section id="about" className="min-h-screen bg-white py-20 px-8 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
@@ -24,7 +24,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              ABOUT
+              NOE
             </motion.h2>
             
             <motion.div 
@@ -34,25 +34,19 @@ const About = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <p className="text-lg text-neutral-600 leading-relaxed">
-                With ten years of experience, I have honed my craft through extensive training and hands-on work in various settings, including photo shoots, fashion shows, weddings, and film productions.
+              <p className="text-lg text-neutral-600 leading-relaxed font-bold">
+               For the past 10 years, makeup has been both my craft and my way of understanding expression, identity, and transformation.
               </p>
               
               <p className="text-lg text-neutral-600 leading-relaxed">
-                My versatile portfolio showcases a wide range of styles, from classic elegance to avant-garde experimentation, always tailored to my clients&apos; unique preferences and personalities.
+                Originally from South America, I was shaped by a culture where celebration is part of everyday life — where colour, movement, and creativity come together in powerful ways. That influence continues to guide how I approach my work today.
+My journey has taken me across Argentina, France, and Australia, allowing me to learn from different perspectives and evolve my style through diverse cultures and experiences. I see myself as a global artist — constantly exploring, learning, and refining my craft.
+With a background in psychology, I’m deeply interested in identity and how we express it. I don’t see makeup as something that corrects, but something that reveals — a tool for storytelling, emotion, and individuality.
+Whether it’s a natural look or something more experimental, my work is always guided by expression, transformation, and the unique story behind every face.
               </p>
             </motion.div>
 
-            {/* Signature or Brand Mark */}
-            <motion.div 
-              className="mt-12"
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <p className="text-sm tracking-[0.3em] text-neutral-400">NOELIA MKP</p>
-            </motion.div>
+            
           </div>
 
           {/* Image */}
@@ -66,7 +60,7 @@ const About = () => {
             <div className="relative aspect-[4/5] w-full max-w-lg mx-auto lg:ml-auto lg:mr-0">
               <div className="absolute inset-0 bg-neutral-100 rounded-sm"></div>
               <Image
-                src="/images/about/noelia.png"
+                src="/images/noe.JPG"
                 alt="Noelia - Professional Makeup Artist"
                 fill
                 className="object-cover rounded-sm grayscale"
@@ -74,9 +68,7 @@ const About = () => {
                 priority
               />
               
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-24 h-24 border border-neutral-300"></div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 border border-neutral-300"></div>
+            
             </div>
           </motion.div>
         </motion.div>
