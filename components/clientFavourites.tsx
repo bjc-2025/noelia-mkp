@@ -21,7 +21,8 @@ const DEFAULT_SERVICES: Service[] = [
     priceFrom: 'From $180',
     image: '/images/services/photoshoot.jpeg',
     layout: 'feature',
-    alt: 'Makeup artist perfecting a model for a studio photoshoot'
+    alt: 'Makeup artist perfecting a model for a studio photoshoot',
+    href: '/services/photoshoot'
   },
   {
     id: 'srv-film-tv',
@@ -36,7 +37,8 @@ const DEFAULT_SERVICES: Service[] = [
     priceFrom: 'From $220',
     image: '/images/services/tv.jpeg',
     layout: 'feature',
-    alt: 'Film and TV set with makeup artist doing on-set touch-ups'
+    alt: 'Film and TV set with makeup artist doing on-set touch-ups',
+    href: '/services/film-tv'
   },
   {
     id: 'srv-wedding',
@@ -51,7 +53,8 @@ const DEFAULT_SERVICES: Service[] = [
     priceFrom: 'From $280',
     image: '/images/services/weddings.jpeg',
     layout: 'feature',
-    alt: 'Bride with elegant, long-lasting bridal makeup'
+    alt: 'Bride with elegant, long-lasting bridal makeup',
+    href: '/services/weddings'
   }
 ]
 
@@ -111,7 +114,7 @@ const ClientFavourites: React.FC<ClientFavouritesProps> = ({
                 variants={fadeInUp}
               >
                 <Link
-                  href="/contact"
+                  href={service.href ?? '/contact'}
                   className="block h-full"
                   aria-label={`Book ${service.title} service`}
                 >

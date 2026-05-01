@@ -39,6 +39,7 @@ export interface Service {
   image: string
   layout: 'feature' | 'standard'
   alt: string
+  href?: string
 }
 
 export interface ClientFavouritesProps {

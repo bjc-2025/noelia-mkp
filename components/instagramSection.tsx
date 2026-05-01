@@ -5,7 +5,7 @@ import Script from "next/script";
 
 export function InstagramSection() {
   return (
-    <section id="gallery" className="relative py-16 px-4 overflow-hidden bg-[#FEE6E7] min-h-screen flex items-center">
+    <section id="gallery" className="relative py-16 px-4 overflow-hidden bg-blush min-h-screen flex items-center">
       <div className="mx-auto max-w-7xl px-8 w-full">
         {/* Section Header */}
         <motion.div

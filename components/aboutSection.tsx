@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 
 const About = () => {
   return (
-    <section className="min-h-screen bg-white py-20 px-8 flex flex-col justify-center">
+    <section id="about" className="min-h-screen bg-white py-20 px-8 flex flex-col justify-center">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
