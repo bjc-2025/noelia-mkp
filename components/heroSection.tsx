@@ -5,11 +5,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
 const sliderImages = [
-  '/images/hero/slider/DSC08484.jpeg',
-  '/images/hero/slider/DSC08508.jpeg',
-  '/images/hero/slider/DSC08593.jpeg',
-  '/images/hero/slider/DSC08687.jpeg',
-  '/images/hero/slider/DSC08711.jpeg',
+  '/images/hero/slider/1.jpg',
+  '/images/hero/slider/2.jpeg',
+  '/images/hero/slider/3.png',
+  '/images/hero/slider/4.jpeg',
+  '/images/hero/slider/5.jpeg',
 ]
 
 const HeroSection = () => {
@@ -74,15 +74,15 @@ const HeroSection = () => {
 
       {/* NOELIA text - left */}
       <motion.div
-        className="absolute inset-0 flex items-end justify-start pl-4 sm:pl-8 pb-28 z-10 pointer-events-none"
+        className="absolute inset-0 flex items-end justify-start pl-6 sm:pl-8 pb-28 z-10 pointer-events-none"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.6, delay: 1 }}
       >
-        <h1 className="text-white text-[2rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-medium tracking-wider whitespace-nowrap leading-[0.85]">
+        <h1 className="text-white text-[4.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-bold sm:font-medium tracking-wider whitespace-nowrap leading-[0.85]">
           NOELIA
           <br />
-          <span className="text-[1.5rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[6rem] xl:text-[7.5rem]">MAKEUP</span>
+          <span className="text-[3.2rem] sm:text-[3rem] md:text-[4.5rem] lg:text-[6rem] xl:text-[7.5rem] font-normal sm:font-medium">MAKEUP</span>
         </h1>
       </motion.div>
 

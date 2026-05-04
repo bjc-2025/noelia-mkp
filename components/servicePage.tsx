@@ -138,7 +138,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 1 }}
           >
-            <h1 className="text-white text-[2rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-medium tracking-wider whitespace-nowrap leading-[0.85] uppercase">
+            <h1 className="text-white text-[clamp(2.5rem,12vw,3.5rem)] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] font-medium tracking-wider sm:whitespace-nowrap leading-[0.85] uppercase">
               {title}
             </h1>
           </motion.div>
