@@ -43,11 +43,11 @@ export default function VideoSection() {
 
 
       {/* Slideshow Words - Bottom Left */}
-      <div className="absolute bottom-24 left-4 z-10 pointer-events-none sm:left-8 md:left-12 lg:left-16">
+      <div className="absolute bottom-24 left-6 z-10 pointer-events-none sm:left-8 md:left-12 lg:left-16">
         <AnimatePresence mode="wait">
           <motion.span
             key={wordIndex}
-            className="block text-white/70 text-[2rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-medium tracking-wider uppercase leading-[0.85]"
+            className="block text-white/70 text-[3.5rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] xl:text-[10rem] font-medium tracking-wider uppercase leading-[0.85]"
             initial={{ y: 30, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -30, opacity: 0 }}
