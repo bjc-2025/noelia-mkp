@@ -26,18 +26,18 @@ const DEFAULT_SERVICES: Service[] = [
   },
   {
     id: 'srv-film-tv',
-    title: 'Film & Television',
-    blurb: 'Camera-safe complexion with continuity in mind.',
+    title: 'Editorial',
+    blurb: 'Bold, creative makeup for editorial shoots.',
     features: [
-      'Shine control',
-      'Transfer-safe formulas',
-      'Continuity notes'
+      'High-fashion looks',
+      'Creative artistry',
+      'Print-ready application'
     ],
     duration: '60–120 min',
     priceFrom: 'From $220',
     image: '/images/services/tv.jpeg',
     layout: 'feature',
-    alt: 'Film and TV set with makeup artist doing on-set touch-ups',
+    alt: 'Editorial makeup shoot with bold creative looks',
     href: '/services/film-tv'
   },
   {

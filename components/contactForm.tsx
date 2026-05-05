@@ -6,7 +6,7 @@ import { ContactFormProps, ServiceOption } from '@/types'
 const SERVICE_OPTIONS: { value: ServiceOption | ''; label: string }[] = [
   { value: '', label: 'Select a service' },
   { value: 'photoshoot', label: 'Photoshoot' },
-  { value: 'film-tv', label: 'Film & Television' },
+  { value: 'film-tv', label: 'Editorial' },
   { value: 'wedding', label: 'Weddings' },
 ]
 

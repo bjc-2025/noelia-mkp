@@ -8,7 +8,7 @@ import { Menu, X } from 'lucide-react'
 const services = [
   { label: 'Weddings', href: '/services/weddings' },
   { label: 'Photoshoot', href: '/services/photoshoot' },
-  { label: 'Film & TV', href: '/services/film-tv' },
+  { label: 'Editorial', href: '/services/film-tv' },
 ]
 
 const Header = () => {

@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function WeddingsPage() {
   const heroImages = getImages('/images/services/weddings/hero')
-  const galleryImages = getImages('/images/services/weddings/gallery', 20)
+  const galleryImages = getImages('/images/services/weddings/gallery', 40)
 
   return (
     <ServicePage

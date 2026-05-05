@@ -2,28 +2,28 @@ import ServicePage from '@/components/servicePage'
 import { getImages } from '@/lib/getImages'
 
 export const metadata = {
-  title: 'Film & Television Makeup | Noelia Makeup',
-  description: 'Camera-safe complexion with continuity in mind. Professional film and TV makeup services by Noelia Makeup.',
+  title: 'Editorial Makeup | Noelia Makeup',
+  description: 'Bold, creative makeup for editorial shoots. Professional editorial makeup services by Noelia Makeup.',
 }
 
-export default function FilmTvPage() {
+export default function EditorialPage() {
   const heroImages = getImages('/images/services/film-tv/hero')
-  const galleryImages = getImages('/images/services/film-tv/gallery', 20)
+  const galleryImages = getImages('/images/services/film-tv/gallery', 40)
 
   return (
     <ServicePage
-      title="Film & Television"
-      description="From commercials to feature films, I deliver camera-safe makeup that maintains continuity across scenes and shooting days. My approach focuses on shine control, transfer-resistant formulas, and seamless blending that holds up under the demands of a production set."
+      title="Editorial"
+      description="From magazine covers to creative campaigns, I craft bold, trend-driven looks that tell a story through makeup. My approach focuses on precision, editorial vision, and collaborative artistry to bring creative concepts to life in front of the camera."
       heroImages={heroImages}
       serviceKey="film-tv"
       subServices={[
-        'Camera-ready makeup for HD and 4K production',
-        'Shine and oil control for long shooting days',
-        'Transfer-safe and sweat-proof formulas',
-        'Continuity notes and documentation',
-        'Character and beauty makeup',
-        'On-set standby and touch-ups',
-        'SFX and prosthetic application available',
+        'High-fashion and editorial makeup looks',
+        'Magazine and print-ready application',
+        'Creative and conceptual makeup artistry',
+        'Collaboration with photographers and stylists',
+        'Trend-forward and avant-garde styles',
+        'On-set touch-ups and adjustments',
+        'Beauty and skin-focused editorial looks',
       ]}
       galleryImages={galleryImages}
     />
