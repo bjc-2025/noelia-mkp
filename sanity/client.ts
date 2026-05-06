@@ -8,6 +8,6 @@ export const client = isSanityConfigured
       projectId,
       dataset,
       apiVersion,
-      useCdn: true,
+      useCdn: false,
     })
   : null
