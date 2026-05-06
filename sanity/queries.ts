@@ -1,7 +1,7 @@
 import { groq } from 'next-sanity'
 
 export const heroCarouselQuery = groq`
-  *[_type == "heroCarousel"][0]{
+  *[_id == "heroCarousel"][0]{
     images[]{
       asset->{url},
       alt,
@@ -11,7 +11,7 @@ export const heroCarouselQuery = groq`
 `
 
 export const serviceGalleryQuery = groq`
-  *[_type == $type][0]{
+  *[_id == $type][0]{
     heroImages[]{
       asset->{url},
       alt,
