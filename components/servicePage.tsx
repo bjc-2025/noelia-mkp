@@ -31,6 +31,7 @@ const ServicePage: React.FC<ServicePageProps> = ({
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
 
   useEffect(() => {
+    if (heroImages.length === 0) return
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % heroImages.length)
     }, 4000)
@@ -111,24 +112,26 @@ const ServicePage: React.FC<ServicePageProps> = ({
 
           {/* Mobile: slideshow */}
           <div className="lg:hidden relative h-full">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                className="absolute inset-0"
-                initial={{ x: '100%', opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                exit={{ x: '-100%', opacity: 0 }}
-                transition={{ duration: 0.6, ease: 'easeInOut' }}
-              >
-                <Image
-                  src={heroImages[currentIndex]}
-                  alt={`${title} ${currentIndex + 1}`}
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-            </AnimatePresence>
+            {heroImages.length > 0 && (
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  className="absolute inset-0"
+                  initial={{ x: '100%', opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  exit={{ x: '-100%', opacity: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeInOut' }}
+                >
+                  <Image
+                    src={heroImages[currentIndex]}
+                    alt={`${title} ${currentIndex + 1}`}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                </motion.div>
+              </AnimatePresence>
+            )}
           </div>
 
           {/* Title overlay */}

@@ -4,33 +4,31 @@ import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { useState, useEffect } from 'react'
 
-const sliderImages = [
-  '/images/hero/slider/1.jpg',
-  '/images/hero/slider/2.jpeg',
-  '/images/hero/slider/3.png',
-  '/images/hero/slider/4.jpeg',
-  '/images/hero/slider/5.jpeg',
-]
+interface HeroSectionProps {
+  images?: string[]
+}
 
-const HeroSection = () => {
+const HeroSection = ({ images }: HeroSectionProps) => {
+  const sliderImages = images || []
   const [currentIndex, setCurrentIndex] = useState(0)
 
   useEffect(() => {
+    if (sliderImages.length === 0) return
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % sliderImages.length)
     }, 4000)
     return () => clearInterval(interval)
-  }, [])
+  }, [sliderImages.length])
 
   return (
     <section className="relative w-full h-screen overflow-hidden bg-black">
-      {/* Desktop: 5 photos side by side, each sliding in from right */}
+      {/* Desktop: photos side by side, each sliding in from right */}
       <div className="hidden lg:flex h-full">
         {sliderImages.map((src, index) => (
           <motion.div
             key={index}
             className="relative h-full overflow-hidden"
-            style={{ width: '20%' }}
+            style={{ width: `${100 / sliderImages.length}%` }}
             initial={{ x: 300, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{
@@ -52,24 +50,26 @@ const HeroSection = () => {
 
       {/* Mobile: slideshow one by one */}
       <div className="lg:hidden relative h-full">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentIndex}
-            className="absolute inset-0"
-            initial={{ x: '100%', opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            exit={{ x: '-100%', opacity: 0 }}
-            transition={{ duration: 0.6, ease: 'easeInOut' }}
-          >
-            <Image
-              src={sliderImages[currentIndex]}
-              alt={`Noelia Makeup portfolio ${currentIndex + 1}`}
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
-        </AnimatePresence>
+        {sliderImages.length > 0 && (
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentIndex}
+              className="absolute inset-0"
+              initial={{ x: '100%', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              exit={{ x: '-100%', opacity: 0 }}
+              transition={{ duration: 0.6, ease: 'easeInOut' }}
+            >
+              <Image
+                src={sliderImages[currentIndex]}
+                alt={`Noelia Makeup portfolio ${currentIndex + 1}`}
+                fill
+                className="object-cover"
+                priority
+              />
+            </motion.div>
+          </AnimatePresence>
+        )}
       </div>
 
       {/* NOELIA text - left */}

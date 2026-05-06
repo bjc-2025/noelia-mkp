@@ -1,14 +1,13 @@
 import ServicePage from '@/components/servicePage'
-import { getImages } from '@/lib/getImages'
+import { getServiceGallery } from '@/sanity/loader'
 
 export const metadata = {
   title: 'Bridal Makeup | Noelia Makeup',
   description: 'Timeless bridal glam designed to last all day. Professional bridal makeup services by Noelia Makeup.',
 }
 
-export default function BridalPage() {
-  const heroImages = getImages('/images/services/bridal/hero')
-  const galleryImages = getImages('/images/services/bridal/gallery', 40)
+export default async function BridalPage() {
+  const { heroImages, galleryImages } = await getServiceGallery('bridal')
 
   return (
     <ServicePage
