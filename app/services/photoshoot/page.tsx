@@ -1,6 +1,8 @@
 import ServicePage from '@/components/servicePage'
 import { getServiceGallery } from '@/sanity/loader'
 
+export const revalidate = 60
+
 export const metadata = {
   title: 'Photoshoot Makeup | Noelia Makeup',
   description: 'HD-ready glam that holds under studio lights. Professional photoshoot makeup services by Noelia Makeup.',

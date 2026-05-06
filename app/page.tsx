@@ -8,6 +8,8 @@ import ContactSection from "@/components/contactSection";
 import Footer from "@/components/footer";
 import { getHeroCarouselImages } from "@/sanity/loader";
 
+export const revalidate = 60
+
 export default async function Home() {
   const heroImages = await getHeroCarouselImages()
 
