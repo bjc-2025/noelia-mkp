@@ -1,0 +1,45 @@
+import { defineType, defineField } from 'sanity'
+
+export const bridalGallery = defineType({
+  name: 'bridalGallery',
+  title: 'Bridal',
+  type: 'document',
+  fields: [
+    defineField({
+      name: 'heroImages',
+      title: 'Hero Images',
+      description: 'Images for the bridal page hero section (max 3)',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            { name: 'alt', title: 'Alt Text', type: 'string' },
+          ],
+        },
+      ],
+      validation: (Rule) => Rule.max(3),
+    }),
+    defineField({
+      name: 'galleryImages',
+      title: 'Gallery Images',
+      description: 'Images for the bridal gallery grid',
+      type: 'array',
+      of: [
+        {
+          type: 'image',
+          options: { hotspot: true },
+          fields: [
+            { name: 'alt', title: 'Alt Text', type: 'string' },
+          ],
+        },
+      ],
+    }),
+  ],
+  preview: {
+    prepare() {
+      return { title: 'Bridal' }
+    },
+  },
+})

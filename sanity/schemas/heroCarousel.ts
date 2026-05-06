@@ -6,14 +6,9 @@ export const heroCarousel = defineType({
   type: 'document',
   fields: [
     defineField({
-      name: 'title',
-      title: 'Title',
-      type: 'string',
-      initialValue: 'Homepage Hero Carousel',
-    }),
-    defineField({
       name: 'images',
       title: 'Carousel Images',
+      description: 'Homepage hero slider images (max 5)',
       type: 'array',
       of: [
         {
@@ -28,10 +23,12 @@ export const heroCarousel = defineType({
           ],
         },
       ],
-      validation: (Rule) => Rule.min(1).max(10),
+      validation: (Rule) => Rule.max(5),
     }),
   ],
   preview: {
-    select: { title: 'title' },
+    prepare() {
+      return { title: 'Hero Carousel' }
+    },
   },
 })

@@ -26,14 +26,22 @@ export async function getHeroCarouselImages(): Promise<string[]> {
   }
 }
 
+const SERVICE_TYPE_MAP: Record<string, string> = {
+  bridal: 'bridalGallery',
+  photoshoot: 'photoshootGallery',
+  'film-tv': 'editorialGallery',
+}
+
 export async function getServiceGallery(
   serviceKey: string
 ): Promise<{ heroImages: string[]; galleryImages: string[] }> {
   if (!isSanityConfigured || !client) return { heroImages: [], galleryImages: [] }
+  const type = SERVICE_TYPE_MAP[serviceKey]
+  if (!type) return { heroImages: [], galleryImages: [] }
   try {
     const data = await client.fetch<ServiceGalleryData | null>(
       serviceGalleryQuery,
-      { serviceKey }
+      { type }
     )
     if (!data) return { heroImages: [], galleryImages: [] }
     return {

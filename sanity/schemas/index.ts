@@ -1,4 +1,6 @@
 import { heroCarousel } from './heroCarousel'
-import { serviceGallery } from './serviceGallery'
+import { bridalGallery } from './bridalGallery'
+import { photoshootGallery } from './photoshootGallery'
+import { editorialGallery } from './editorialGallery'
 
-export const schemaTypes = [heroCarousel, serviceGallery]
+export const schemaTypes = [heroCarousel, bridalGallery, photoshootGallery, editorialGallery]

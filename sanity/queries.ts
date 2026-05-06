@@ -11,7 +11,7 @@ export const heroCarouselQuery = groq`
 `
 
 export const serviceGalleryQuery = groq`
-  *[_type == "serviceGallery" && serviceKey == $serviceKey][0]{
+  *[_type == $type][0]{
     heroImages[]{
       asset->{url},
       alt,
