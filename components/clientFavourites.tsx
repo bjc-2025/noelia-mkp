@@ -41,8 +41,8 @@ const DEFAULT_SERVICES: Service[] = [
     href: '/services/film-tv'
   },
   {
-    id: 'srv-wedding',
-    title: 'Weddings',
+    id: 'srv-bridal',
+    title: 'Bridal',
     blurb: 'Timeless bridal glam designed to last all day.',
     features: [
       'Bridal trial option',
@@ -51,10 +51,10 @@ const DEFAULT_SERVICES: Service[] = [
     ],
     duration: '~90 min',
     priceFrom: 'From $280',
-    image: '/images/services/weddings.jpeg',
+    image: '/images/services/bridal.jpeg',
     layout: 'feature',
     alt: 'Bride with elegant, long-lasting bridal makeup',
-    href: '/services/weddings'
+    href: '/services/bridal'
   }
 ]
 

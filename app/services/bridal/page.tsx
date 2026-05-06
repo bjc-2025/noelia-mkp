@@ -2,20 +2,20 @@ import ServicePage from '@/components/servicePage'
 import { getImages } from '@/lib/getImages'
 
 export const metadata = {
-  title: 'Wedding Makeup | Noelia Makeup',
-  description: 'Timeless bridal glam designed to last all day. Professional wedding makeup services by Noelia Makeup.',
+  title: 'Bridal Makeup | Noelia Makeup',
+  description: 'Timeless bridal glam designed to last all day. Professional bridal makeup services by Noelia Makeup.',
 }
 
-export default function WeddingsPage() {
-  const heroImages = getImages('/images/services/weddings/hero')
-  const galleryImages = getImages('/images/services/weddings/gallery', 40)
+export default function BridalPage() {
+  const heroImages = getImages('/images/services/bridal/hero')
+  const galleryImages = getImages('/images/services/bridal/gallery', 40)
 
   return (
     <ServicePage
-      title="Weddings"
+      title="Bridal"
       description="Your wedding day deserves makeup that feels as beautiful as it looks. I create timeless, long-lasting bridal looks tailored to your style — from soft and romantic to bold and glamorous. Every application is designed to last from the first look through the last dance."
       heroImages={heroImages}
-      serviceKey="wedding"
+      serviceKey="bridal"
       subServices={[
         'Bridal trial consultation included',
         'Full face bridal makeup application',

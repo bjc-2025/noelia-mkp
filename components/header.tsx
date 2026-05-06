@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 
 const services = [
-  { label: 'Weddings', href: '/services/weddings' },
+  { label: 'Bridal', href: '/services/bridal' },
   { label: 'Photoshoot', href: '/services/photoshoot' },
   { label: 'Editorial', href: '/services/film-tv' },
 ]

@@ -116,7 +116,7 @@ const ContactPage = () => {
                 className="w-full px-4 py-3 bg-white/10 backdrop-blur-sm text-white rounded-lg border border-white/20 focus:border-white/40 focus:outline-none transition-all"
               >
                 <option value="" className="bg-gray-900">Select a service</option>
-                <option value="wedding" className="bg-gray-900">Wedding Makeup</option>
+                <option value="bridal" className="bg-gray-900">Bridal Makeup</option>
                 <option value="special-event" className="bg-gray-900">Special Event Makeup</option>
                 <option value="photoshoot" className="bg-gray-900">Photoshoot Makeup</option>
                 <option value="lessons" className="bg-gray-900">Makeup Lessons</option>

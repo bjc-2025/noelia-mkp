@@ -47,7 +47,7 @@ export interface ClientFavouritesProps {
 }
 
 // Contact Form Types
-export type ServiceOption = 'photoshoot' | 'film-tv' | 'wedding'
+export type ServiceOption = 'photoshoot' | 'film-tv' | 'bridal'
 
 export interface ContactFormProps {
   selectedService?: ServiceOption

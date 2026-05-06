@@ -13,7 +13,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Noelia Makeup | Professional Makeup Artist & Beauty Services",
   description: "Award-winning makeup artist specializing in bridal, special occasion, and editorial makeup. Transform your look with personalized beauty services. Book your consultation today!",
-  keywords: "makeup artist, bridal makeup, wedding makeup, professional makeup artist, beauty services, special occasion makeup, makeup consultation, mobile makeup artist",
+  keywords: "makeup artist, bridal makeup, professional makeup artist, beauty services, special occasion makeup, makeup consultation, mobile makeup artist",
   authors: [{ name: "Noelia Makeup" }],
   creator: "Noelia Makeup",
   publisher: "Noelia Makeup",

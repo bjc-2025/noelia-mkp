@@ -35,15 +35,14 @@ const About = () => {
               viewport={{ once: true }}
             >
               <p className="text-lg text-neutral-600 leading-relaxed font-bold">
-               For the past 10 years, makeup has been both my craft and my way of exploring expression, identity, and transformation.
-              </p>
+             Makeup artist based in Sydney. Beauty, editorial & transformative makeup </p>
               
               <p className="text-lg text-neutral-600 leading-relaxed">
-               Originally from South America, I was shaped by a culture where celebration, colour, and creativity are part of everyday life. That influence continues to guide my work today. My journey across Argentina, Europe, and Australia has allowed me to learn from different perspectives and evolve my style through diverse cultures and experiences.
+               For the past 10 years, makeup has been both my craft and my way of exploring expression, identity, and transformation.
 
-With a background in psychology, I’m deeply interested in identity and self-expression. I see makeup not as something that corrects, but something that reveals, a tool for storytelling, emotion, and individuality. Whether natural or experimental, my work is always guided by expression, transformation, and the unique story behind every face.
-Whether it’s a natural look or something more experimental, my work is always guided by expression, transformation, and the unique story behind every face.
-              </p>
+Originally from South America, I was shaped by a culture where celebration, colour, and creativity are part of everyday life. That influence continues to guide my work today. My journey across Argentina, Europe, and Australia has allowed me to learn from different perspectives and evolve my style through diverse cultures and experiences.
+
+With a background in psychology, I’m deeply interested in identity and self-expression. I see makeup not as something that corrects, but something that reveals, a tool for storytelling, emotion, and individuality. Whether natural or experimental, my work is always guided by expression, transformation, and the unique story behind every face. </p>
             </motion.div>
 
             
