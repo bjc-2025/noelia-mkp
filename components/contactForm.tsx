@@ -18,6 +18,7 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedService }) => {
     date: '',
     message: '',
   })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -25,25 +26,32 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedService }) => {
     setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setStatus('sending')
 
-    const subject = encodeURIComponent(
-      `Booking Inquiry – ${SERVICE_OPTIONS.find(s => s.value === formData.service)?.label ?? 'General'}`
-    )
-    const body = encodeURIComponent(
-      [
-        `Name: ${formData.name}`,
-        `Service: ${SERVICE_OPTIONS.find(s => s.value === formData.service)?.label ?? 'Not specified'}`,
-        formData.date ? `Preferred Date: ${formData.date}` : '',
-        '',
-        formData.message,
-      ]
-        .filter(Boolean)
-        .join('\n')
-    )
+    const serviceName = SERVICE_OPTIONS.find(s => s.value === formData.service)?.label ?? 'General'
 
-    window.location.href = `mailto:contact@noeliamkp.com?subject=${subject}&body=${body}`
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          service: serviceName,
+          date: formData.date,
+          message: formData.message,
+        }),
+      })
+
+      if (!res.ok) throw new Error()
+
+      setStatus('sent')
+      setFormData({ name: '', email: '', service: '', date: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   const inputClasses =
@@ -103,10 +111,18 @@ const ContactForm: React.FC<ContactFormProps> = ({ selectedService }) => {
 
       <button
         type="submit"
-        className="inline-flex items-center gap-2 border border-neutral-900 px-10 py-3 text-sm tracking-widest uppercase text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors duration-300"
+        disabled={status === 'sending'}
+        className="inline-flex items-center gap-2 border border-neutral-900 px-10 py-3 text-sm tracking-widest uppercase text-neutral-900 hover:bg-neutral-900 hover:text-white transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        Send Inquiry
+        {status === 'sending' ? 'Sending...' : 'Send Inquiry'}
       </button>
+
+      {status === 'sent' && (
+        <p className="text-green-700 text-sm tracking-wide">Thank you! Your inquiry has been sent successfully.</p>
+      )}
+      {status === 'error' && (
+        <p className="text-red-600 text-sm tracking-wide">Something went wrong. Please try again.</p>
+      )}
     </form>
   )
 }

@@ -11,6 +11,7 @@ const ContactPage = () => {
     service: '',
     message: ''
   })
+  const [status, setStatus] = useState<'idle' | 'sending' | 'sent' | 'error'>('idle')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
@@ -19,17 +20,40 @@ const ContactPage = () => {
     })
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const serviceLabels: Record<string, string> = {
+    bridal: 'Bridal Makeup',
+    'special-event': 'Special Event Makeup',
+    photoshoot: 'Photoshoot Makeup',
+    lessons: 'Makeup Lessons',
+    other: 'Other',
+  }
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    console.log('Form submitted:', formData)
-    alert('Thank you for your message! We will get back to you soon.')
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      service: '',
-      message: ''
-    })
+    setStatus('sending')
+
+    const serviceName = serviceLabels[formData.service] ?? 'General'
+
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+          service: serviceName,
+          message: formData.message,
+        }),
+      })
+
+      if (!res.ok) throw new Error()
+
+      setStatus('sent')
+      setFormData({ name: '', email: '', phone: '', service: '', message: '' })
+    } catch {
+      setStatus('error')
+    }
   }
 
   return (
@@ -141,13 +165,21 @@ const ContactPage = () => {
             />
           </div>
 
-          <div className="flex justify-center">
+          <div className="flex flex-col items-center gap-4">
             <button
               type="submit"
-              className="px-12 py-4 bg-white text-black rounded-full text-sm tracking-wider hover:bg-gray-200 transition-all duration-300 transform hover:scale-105"
+              disabled={status === 'sending'}
+              className="px-12 py-4 bg-white text-black rounded-full text-sm tracking-wider hover:bg-gray-200 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              SEND MESSAGE
+              {status === 'sending' ? 'SENDING...' : 'SEND MESSAGE'}
             </button>
+
+            {status === 'sent' && (
+              <p className="text-green-400 text-sm">Thank you! Your inquiry has been sent successfully.</p>
+            )}
+            {status === 'error' && (
+              <p className="text-red-400 text-sm">Something went wrong. Please try again.</p>
+            )}
           </div>
         </motion.form>
 
