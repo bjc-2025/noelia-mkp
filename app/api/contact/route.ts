@@ -15,47 +15,74 @@ export async function POST(request: Request) {
     }
 
     const htmlBody = `
-      <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 40px 20px;">
-        <h1 style="font-size: 24px; font-weight: 400; color: #1a1a1a; border-bottom: 1px solid #e5e5e5; padding-bottom: 16px; margin-bottom: 24px;">
-          New Inquiry
-        </h1>
-
-        <table style="width: 100%; border-collapse: collapse; margin-bottom: 32px;">
-          <tr>
-            <td style="padding: 10px 0; color: #737373; font-size: 14px; width: 140px; vertical-align: top;">Name</td>
-            <td style="padding: 10px 0; color: #1a1a1a; font-size: 14px;">${name}</td>
-          </tr>
-          <tr>
-            <td style="padding: 10px 0; color: #737373; font-size: 14px; vertical-align: top;">Email</td>
-            <td style="padding: 10px 0; color: #1a1a1a; font-size: 14px;">
-              <a href="mailto:${email}" style="color: #1a1a1a;">${email}</a>
-            </td>
-          </tr>
-          ${phone ? `
-          <tr>
-            <td style="padding: 10px 0; color: #737373; font-size: 14px; vertical-align: top;">Phone</td>
-            <td style="padding: 10px 0; color: #1a1a1a; font-size: 14px;">${phone}</td>
-          </tr>
-          ` : ''}
-          <tr>
-            <td style="padding: 10px 0; color: #737373; font-size: 14px; vertical-align: top;">Service</td>
-            <td style="padding: 10px 0; color: #1a1a1a; font-size: 14px;">${service}</td>
-          </tr>
-          ${date ? `
-          <tr>
-            <td style="padding: 10px 0; color: #737373; font-size: 14px; vertical-align: top;">Preferred Date</td>
-            <td style="padding: 10px 0; color: #1a1a1a; font-size: 14px;">${date}</td>
-          </tr>
-          ` : ''}
-        </table>
-
-        <div style="border-top: 1px solid #e5e5e5; padding-top: 20px;">
-          <p style="color: #737373; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px;">Message</p>
-          <p style="color: #1a1a1a; font-size: 14px; line-height: 1.6; white-space: pre-wrap;">${message}</p>
+      <div style="font-family: 'Helvetica Neue', Arial, sans-serif; max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+        <!-- Header with branding -->
+        <div style="background-color: #1a1a1a; padding: 32px 40px; text-align: center;">
+          <h1 style="margin: 0; font-size: 20px; font-weight: 300; color: #ffffff; letter-spacing: 6px; text-transform: uppercase;">
+            NOELIA MAKEUP
+          </h1>
         </div>
 
-        <div style="margin-top: 40px; padding-top: 16px; border-top: 1px solid #e5e5e5;">
-          <p style="color: #a3a3a3; font-size: 12px;">Sent from noeliamkp.com</p>
+        <!-- Blush accent bar -->
+        <div style="height: 4px; background-color: #FEE6E7;"></div>
+
+        <!-- Content -->
+        <div style="padding: 40px;">
+          <p style="font-size: 11px; text-transform: uppercase; letter-spacing: 3px; color: #737373; margin: 0 0 24px 0;">
+            New Inquiry Received
+          </p>
+
+          <!-- Client details -->
+          <table style="width: 100%; border-collapse: collapse; margin-bottom: 32px;">
+            <tr>
+              <td style="padding: 12px 0; color: #a3a3a3; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; width: 140px; vertical-align: top; border-bottom: 1px solid #f5f5f5;">Name</td>
+              <td style="padding: 12px 0; color: #1a1a1a; font-size: 14px; border-bottom: 1px solid #f5f5f5;">${name}</td>
+            </tr>
+            <tr>
+              <td style="padding: 12px 0; color: #a3a3a3; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; vertical-align: top; border-bottom: 1px solid #f5f5f5;">Email</td>
+              <td style="padding: 12px 0; color: #1a1a1a; font-size: 14px; border-bottom: 1px solid #f5f5f5;">
+                <a href="mailto:${email}" style="color: #1a1a1a; text-decoration: none;">${email}</a>
+              </td>
+            </tr>
+            ${phone ? `
+            <tr>
+              <td style="padding: 12px 0; color: #a3a3a3; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; vertical-align: top; border-bottom: 1px solid #f5f5f5;">Phone</td>
+              <td style="padding: 12px 0; color: #1a1a1a; font-size: 14px; border-bottom: 1px solid #f5f5f5;">${phone}</td>
+            </tr>
+            ` : ''}
+            <tr>
+              <td style="padding: 12px 0; color: #a3a3a3; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; vertical-align: top; border-bottom: 1px solid #f5f5f5;">Service</td>
+              <td style="padding: 12px 0; color: #1a1a1a; font-size: 14px; border-bottom: 1px solid #f5f5f5;">
+                <span style="display: inline-block; background-color: #FEE6E7; padding: 4px 12px; border-radius: 4px; font-size: 13px;">${service}</span>
+              </td>
+            </tr>
+            ${date ? `
+            <tr>
+              <td style="padding: 12px 0; color: #a3a3a3; font-size: 12px; text-transform: uppercase; letter-spacing: 1px; vertical-align: top; border-bottom: 1px solid #f5f5f5;">Date</td>
+              <td style="padding: 12px 0; color: #1a1a1a; font-size: 14px; border-bottom: 1px solid #f5f5f5;">${date}</td>
+            </tr>
+            ` : ''}
+          </table>
+
+          <!-- Message -->
+          <div style="background-color: #fafafa; border-left: 3px solid #FEE6E7; padding: 20px 24px; margin-bottom: 32px;">
+            <p style="color: #a3a3a3; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; margin: 0 0 12px 0;">Message</p>
+            <p style="color: #1a1a1a; font-size: 14px; line-height: 1.7; white-space: pre-wrap; margin: 0;">${message}</p>
+          </div>
+
+          <!-- Reply button -->
+          <div style="text-align: center; margin-bottom: 16px;">
+            <a href="mailto:${email}" style="display: inline-block; background-color: #1a1a1a; color: #ffffff; padding: 12px 32px; text-decoration: none; font-size: 12px; letter-spacing: 2px; text-transform: uppercase;">
+              Reply to ${name.split(' ')[0]}
+            </a>
+          </div>
+        </div>
+
+        <!-- Footer -->
+        <div style="background-color: #fafafa; padding: 24px 40px; text-align: center; border-top: 1px solid #f0f0f0;">
+          <p style="color: #a3a3a3; font-size: 11px; letter-spacing: 1px; margin: 0;">
+            NOELIA MAKEUP &middot; noeliamkp.com
+          </p>
         </div>
       </div>
     `
@@ -66,6 +93,11 @@ export async function POST(request: Request) {
       subject: `New Inquiry – ${service}`,
       replyTo: email,
       html: htmlBody,
+      headers: {
+        'X-Priority': '1',
+        'X-MSMail-Priority': 'High',
+        Importance: 'high',
+      },
     })
 
     if (error) {
