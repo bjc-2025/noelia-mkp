@@ -42,7 +42,7 @@ const About = () => {
 
 Originally from South America, I was shaped by a culture where celebration, colour, and creativity are part of everyday life. That influence continues to guide my work today. My journey across Argentina, Europe, and Australia has allowed me to learn from different perspectives and evolve my style through diverse cultures and experiences.
 
-With a background in psychology, I’m deeply interested in identity and self-expression. I see makeup not as something that corrects, but something that reveals, a tool for storytelling, emotion, and individuality. Whether natural or experimental, my work is always guided by expression, transformation, and the unique story behind every face. </p>
+I’m deeply interested in identity and self-expression. I see makeup not as something that corrects, but something that reveals, a tool for storytelling, emotion, and individuality. Whether natural or experimental, my work is always guided by expression, transformation, and the unique story behind every face. </p>
             </motion.div>
 
             
